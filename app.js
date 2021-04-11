@@ -74,18 +74,6 @@ const songs = [
 		albumImg: '/img/peggy2.jpg'
 	},
 	{
-		album: 'Seek For Maktoop',
-		artist: 'Peggy Gou',
-		songTitle: 'Gou Talk',
-		albumImg: '/img/peggy2.jpg'
-	},
-	{
-		album: 'Music Complete',
-		artist: 'New Order',
-		songTitle: 'Tutti Frutti',
-		albumImg: '/img/neworder2.jpg'
-	},
-	{
 		album: 'Music Complete',
 		artist: 'New Order',
 		songTitle: 'Tutti Frutti',
@@ -96,6 +84,12 @@ const songs = [
 		artist: 'Polo & Pan',
 		songTitle: 'Kirghiz',
 		albumImg: '/img/polopan.jpg'
+	},
+	{
+		album: 'Songs of Faith and Devotion',
+		artist: 'Depeche Mode',
+		songTitle: 'I Feel You',
+		albumImg: '/img/depechemode.jpeg'
 	}
 ];
 
@@ -114,7 +108,6 @@ nextSong.addEventListener('click', function() {
 	newImage.src = songs[getNum].albumImg;
 
 	console.log(getNum);
-
 });
 
 newWindow.addEventListener('click', function() {
