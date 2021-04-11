@@ -1,0 +1,356 @@
+body {
+  font-family: "Avenir LT Std";
+  margin: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  color: white;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin: 0;
+}
+
+i {
+  cursor: pointer;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+@font-face {
+  font-family: "Avenir LT Std";
+  src: url("AvenirLTStd-Book.woff2") format("woff2"), url("AvenirLTStd-Book.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Avenir LT Std";
+  src: url("AvenirLTStd-Medium.woff2") format("woff2"), url("AvenirLTStd-Medium.woff") format("woff");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Gilroy";
+  src: url("Gilroy-Bold.woff2") format("woff2"), url("Gilroy-Bold.woff") format("woff");
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
+h1 {
+  color: black;
+  margin-bottom: 50px;
+  text-align: center;
+}
+
+.wrapper {
+  width: 100%;
+  height: 100vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.mobile {
+  width: 375px;
+  height: 660px;
+  background-color: #383838;
+  border-radius: 32px;
+  position: relative;
+}
+
+.mobile .mobile-inside {
+  width: 95%;
+  height: 535px;
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#d42746), color-stop(#bd233f), color-stop(#89192d), color-stop(#6e1424), color-stop(#550f1c), color-stop(#341016), color-stop(#341016), to(#121212));
+  background-image: linear-gradient(to bottom, #d42746, #bd233f, #89192d, #6e1424, #550f1c, #341016, #341016, #121212);
+  position: relative;
+  left: 9px;
+  top: 50px;
+}
+
+.mobile:before {
+  content: "";
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: #4a4a4a;
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+}
+
+.top {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 10px;
+  position: relative;
+}
+
+.top:before, .top:after {
+  content: "";
+  width: 2px;
+  height: 15px;
+  background-color: white;
+  position: absolute;
+  cursor: pointer;
+}
+
+.top:before {
+  left: 20px;
+  -webkit-transform: rotate(-40deg);
+          transform: rotate(-40deg);
+}
+
+.top:after {
+  left: 29px;
+  -webkit-transform: rotate(40deg);
+          transform: rotate(40deg);
+}
+
+.top .heading-wrap {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 100%;
+}
+
+.top .heading-wrap p,
+.top .heading-wrap h6 {
+  text-transform: uppercase;
+}
+
+.top .heading-wrap p {
+  font-size: 12px;
+}
+
+.top .heading-wrap p:nth-of-type(2) {
+  font-size: 14px;
+  font-family: "Gilroy";
+  font-weight: bold;
+  margin-bottom: 3px;
+}
+
+.top .dots {
+  cursor: pointer;
+}
+
+.top .dots .dot {
+  width: 4px;
+  height: 3px;
+  background-color: white;
+  border-radius: 50%;
+  margin-bottom: 4px;
+}
+
+.top .dots .dot:last-of-type {
+  margin-bottom: 0;
+}
+
+.main {
+  padding: 0 35px;
+}
+
+.main .img-wrap {
+  margin-bottom: 10px;
+  padding: 0 5px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+.main .song {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-bottom: 30px;
+}
+
+.main .song .song-name h5 {
+  font-size: 18px;
+  font-family: "Gilroy";
+  font-weight: bold;
+  margin-bottom: 2px;
+}
+
+.main .song i {
+  -webkit-transition: color 0.25s ease-in;
+  transition: color 0.25s ease-in;
+}
+
+.main .song i:hover {
+  color: green;
+}
+
+.main .time {
+  position: relative;
+  margin-bottom: 20px;
+}
+
+.main .time:before {
+  content: "";
+  width: 100%;
+  height: 2px;
+  background-color: #4a4a4a;
+  position: absolute;
+  top: -7px;
+  border-radius: 20px;
+}
+
+.main .time:after {
+  content: "";
+  width: 5px;
+  height: 5px;
+  background-color: white;
+  border-radius: 50%;
+  position: absolute;
+  top: -9px;
+  left: 21px;
+  cursor: pointer;
+}
+
+.main .time .time-wrap {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.main .time .time-wrap p {
+  font-size: 10px;
+}
+
+.main .icons {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  margin-bottom: 5px;
+}
+
+.main .icons .first,
+.main .icons .second {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  width: 30%;
+}
+
+.main .icons i.fas {
+  font-size: 20px;
+  -webkit-transition: opacity 0.25s ease-in-out;
+  transition: opacity 0.25s ease-in-out;
+}
+
+.main .icons i.fas:hover {
+  opacity: 0.75;
+}
+
+.main .icons i.fa-play-circle {
+  font-size: 50px;
+}
+
+.main .playlist {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+}
+
+.main .playlist i {
+  font-size: 12px;
+}
+
+.opened {
+  display: block;
+}
+
+.closed {
+  display: none;
+}
+
+.overlay {
+  width: 100%;
+  height: 100%;
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#d42746), color-stop(#bd233f), color-stop(#89192d), color-stop(#6e1424), color-stop(#550f1c), color-stop(#341016), color-stop(#341016), to(#121212));
+  background-image: linear-gradient(to bottom, #d42746, #bd233f, #89192d, #6e1424, #550f1c, #341016, #341016, #121212);
+  position: absolute;
+  top: 0;
+  font-size: 50px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+h2 {
+  text-align: center;
+}
+
+.fa-times-circle {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+/*# sourceMappingURL=style.css.map */
