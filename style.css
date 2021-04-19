@@ -1,5 +1,5 @@
 body {
-  font-family: "Avenir LT Std";
+  font-family: 'Avenir LT Std';
   margin: 0;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
@@ -26,7 +26,7 @@ img {
 }
 
 @font-face {
-  font-family: "Avenir LT Std";
+  font-family: 'Avenir LT Std';
   src: url("AvenirLTStd-Book.woff2") format("woff2"), url("AvenirLTStd-Book.woff") format("woff");
   font-weight: normal;
   font-style: normal;
@@ -34,7 +34,7 @@ img {
 }
 
 @font-face {
-  font-family: "Avenir LT Std";
+  font-family: 'Avenir LT Std';
   src: url("AvenirLTStd-Medium.woff2") format("woff2"), url("AvenirLTStd-Medium.woff") format("woff");
   font-weight: 500;
   font-style: normal;
@@ -42,7 +42,7 @@ img {
 }
 
 @font-face {
-  font-family: "Gilroy";
+  font-family: 'Gilroy';
   src: url("Gilroy-Bold.woff2") format("woff2"), url("Gilroy-Bold.woff") format("woff");
   font-weight: bold;
   font-style: normal;
@@ -92,7 +92,7 @@ h1 {
 }
 
 .mobile:before {
-  content: "";
+  content: '';
   width: 40px;
   height: 40px;
   border-radius: 50%;
@@ -119,7 +119,7 @@ h1 {
 }
 
 .top:before, .top:after {
-  content: "";
+  content: '';
   width: 2px;
   height: 15px;
   background-color: white;
@@ -164,7 +164,7 @@ h1 {
 
 .top .heading-wrap p:nth-of-type(2) {
   font-size: 14px;
-  font-family: "Gilroy";
+  font-family: 'Gilroy';
   font-weight: bold;
   margin-bottom: 3px;
 }
@@ -211,7 +211,7 @@ h1 {
 
 .main .song .song-name h5 {
   font-size: 18px;
-  font-family: "Gilroy";
+  font-family: 'Gilroy';
   font-weight: bold;
   margin-bottom: 2px;
 }
@@ -231,7 +231,7 @@ h1 {
 }
 
 .main .time:before {
-  content: "";
+  content: '';
   width: 100%;
   height: 2px;
   background-color: #4a4a4a;
@@ -241,7 +241,7 @@ h1 {
 }
 
 .main .time:after {
-  content: "";
+  content: '';
   width: 5px;
   height: 5px;
   background-color: white;
@@ -317,6 +317,40 @@ h1 {
   font-size: 12px;
 }
 
+h2 {
+  text-align: center;
+}
+
+.fa-times-circle {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+
+@-webkit-keyframes showMore {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes showMore {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
 .opened {
   display: block;
 }
@@ -327,6 +361,7 @@ h1 {
 
 .overlay {
   width: 100%;
+  min-height: 536px;
   height: 100%;
   background-image: -webkit-gradient(linear, left top, left bottom, from(#d42746), color-stop(#bd233f), color-stop(#89192d), color-stop(#6e1424), color-stop(#550f1c), color-stop(#341016), color-stop(#341016), to(#121212));
   background-image: linear-gradient(to bottom, #d42746, #bd233f, #89192d, #6e1424, #550f1c, #341016, #341016, #121212);
@@ -342,15 +377,50 @@ h1 {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+  -webkit-animation: showMore 0.2s ease-in-out forwards;
+          animation: showMore 0.2s ease-in-out forwards;
+  z-index: 1;
+  overflow-y: auto;
 }
 
-h2 {
+.inside-show-more {
+  width: 100%;
+  height: 85%;
+}
+
+.inside-show-more p {
+  font-size: 26px;
+  margin: 5px;
+}
+
+.inside-show-more h3 {
+  font-size: 30px;
   text-align: center;
+  margin: 16px;
 }
 
-.fa-times-circle {
+.inside-show-more div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  margin-left: 5px;
+}
+
+.inside-show-more .more {
+  display: inline-block;
+  width: 100%;
+  font-size: 18px;
+}
+
+.fa-window-close {
+  font-size: 30px;
   position: absolute;
-  top: 10px;
-  right: 10px;
+  top: 8px;
+  right: 8px;
+  margin-bottom: 20px;
 }
 /*# sourceMappingURL=style.css.map */

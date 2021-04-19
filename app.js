@@ -3,8 +3,10 @@ const newImage = document.querySelector('#next');
 const albumName = document.querySelector('#album-name');
 const songName = document.querySelector('#songs');
 const artistName = document.querySelector('#artist');
-
+const likeBtn = document.querySelector('.fa-heart');
+const closeBtn = document.querySelector('.fa-window-close ');
 const newWindow = document.querySelector('.dots');
+const showMore = document.querySelector('#show-more');
 
 const songs = [
 	{
@@ -95,6 +97,9 @@ const songs = [
 
 console.log(songs.length);
 
+// let sortedSongs = songs.sort();
+// console.log(sortedSongs);
+
 const getSong = () => {
 	return Math.floor(Math.random() * songs.length);
 };
@@ -107,14 +112,34 @@ nextSong.addEventListener('click', function() {
 	songName.textContent = songs[getNum].songTitle;
 	newImage.src = songs[getNum].albumImg;
 
+	let singleSong = songs[getNum].songTitle;
+	let songArtist = songs[getNum].artist;
+
+	localStorage.setItem('artistsong', JSON.stringify(songArtist));
+	localStorage.setItem('singlesong', JSON.stringify(singleSong));
+
+	let storedArtist = JSON.parse(localStorage.getItem('artistsong'));
+	let storedSong = JSON.parse(localStorage.getItem('singlesong'));
+
+	document.querySelector('.add-more').textContent = storedSong;
+	document.querySelector('.more').textContent = storedArtist;
+
 	console.log(getNum);
 });
 
+likeBtn.addEventListener('click', function() {
+	// console.log('I like this song');
+	// likeBtn.style.color = 'green';
+});
+
+// localStorage.clear();
+
 newWindow.addEventListener('click', function() {
-	const menu = document.createElement('div');
-	document.querySelector('.mobile-inside').appendChild(menu);
-	menu.classList.add('overlay');
-	const text = document.createElement('h2');
-	menu.appendChild(text);
-	text.textContent = 'Hello World';
+	showMore.classList.remove('closed');
+	showMore.classList.add('opened', 'overlay');
+});
+
+closeBtn.addEventListener('click', function() {
+	showMore.classList.remove('opened', 'overlay');
+	showMore.classList.add('closed');
 });
