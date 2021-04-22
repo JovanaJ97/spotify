@@ -1,12 +1,21 @@
+// Buttons
 const nextSong = document.querySelector('.fa-step-forward');
+const prevSong = document.querySelector('.fa-step-backward');
+const randomSong = document.querySelector('.fa-random');
+const likeBtn = document.querySelector('.fa-heart');
+const closeBtn = document.querySelector('.fa-window-close ');
+
+//Selectors
 const newImage = document.querySelector('#next');
 const albumName = document.querySelector('#album-name');
 const songName = document.querySelector('#songs');
 const artistName = document.querySelector('#artist');
-const likeBtn = document.querySelector('.fa-heart');
-const closeBtn = document.querySelector('.fa-window-close ');
+
+// Other
 const newWindow = document.querySelector('.dots');
 const showMore = document.querySelector('#show-more');
+// const playlistPlaying = document.querySelector('#playlist-playing');
+// const playlist = document.querySelector('.lni-indent-increase');
 
 const songs = [
 	{
@@ -97,23 +106,62 @@ const songs = [
 
 console.log(songs.length);
 
-// let sortedSongs = songs.sort();
-// console.log(sortedSongs);
-
 const getSong = () => {
 	return Math.floor(Math.random() * songs.length);
 };
 
+let singleSong;
+let songArtist;
+
+// current song
+let currentSong = 0;
+
+const showSong = play => {
+	const spotifySong = songs[play];
+	albumName.textContent = spotifySong.album;
+	artistName.textContent = spotifySong.artist;
+	songName.textContent = spotifySong.songTitle;
+	newImage.src = spotifySong.albumImg;
+};
+
 nextSong.addEventListener('click', function() {
-	let getNum = getSong();
+	currentSong++;
 
-	albumName.textContent = songs[getNum].album;
-	artistName.textContent = songs[getNum].artist;
-	songName.textContent = songs[getNum].songTitle;
-	newImage.src = songs[getNum].albumImg;
+	if (currentSong > songs.length - 1) {
+		currentSong = 0;
+	}
 
-	let singleSong = songs[getNum].songTitle;
-	let songArtist = songs[getNum].artist;
+	showSong(currentSong);
+
+	singleSong = songs[currentSong].songTitle;
+	songArtist = songs[currentSong].artist;
+
+	console.log(currentSong);
+});
+
+prevSong.addEventListener('click', function() {
+	currentSong--;
+
+	if (currentSong < 0) {
+		currentSong = songs.length - 1;
+	}
+
+	showSong(currentSong);
+
+	console.log(currentSong);
+});
+
+// shuffle
+randomSong.addEventListener('click', function() {
+	currentSong = getSong();
+
+	showSong(currentSong);
+
+	console.log(currentSong);
+});
+
+likeBtn.addEventListener('click', function() {
+	let likedSongs = [];
 
 	localStorage.setItem('artistsong', JSON.stringify(songArtist));
 	localStorage.setItem('singlesong', JSON.stringify(singleSong));
@@ -124,10 +172,10 @@ nextSong.addEventListener('click', function() {
 	document.querySelector('.add-more').textContent = storedSong;
 	document.querySelector('.more').textContent = storedArtist;
 
-	console.log(getNum);
-});
+	/// likedSongs.push(storedSong);
 
-likeBtn.addEventListener('click', function() {
+	// console.log(likedSongs);
+
 	// console.log('I like this song');
 	// likeBtn.style.color = 'green';
 });
