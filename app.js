@@ -106,16 +106,13 @@ const songs = [
 
 console.log(songs.length);
 
-const getSong = () => {
-	return Math.floor(Math.random() * songs.length);
-};
-
 let singleSong;
-let songArtist;
+let likedSongs;
 
 // current song
 let currentSong = 0;
 
+// functions
 const showSong = play => {
 	const spotifySong = songs[play];
 	albumName.textContent = spotifySong.album;
@@ -123,6 +120,34 @@ const showSong = play => {
 	songName.textContent = spotifySong.songTitle;
 	newImage.src = spotifySong.albumImg;
 };
+
+const getSong = () => {
+	return Math.floor(Math.random() * songs.length);
+};
+
+const setToLocalStorage = () => {
+	const addedSong = document.createElement('p');
+	addedSong.classList.add('add-more');
+
+	localStorage.setItem('likedsongs', JSON.stringify(likedSongs));
+	let storedSong = JSON.parse(localStorage.getItem('likedsongs'));
+
+	addedSong.textContent = storedSong;
+
+	const addedWrap = document.querySelector('.added');
+	addedWrap.appendChild(addedSong);
+};
+
+const setSong = () => {
+	singleSong = songs[currentSong].songTitle;
+	songArtist = songs[currentSong].artist;
+
+	likedSongs = [singleSong, songArtist];
+};
+
+window.addEventListener('DOMContentLoaded', function() {
+	showSong(currentSong);
+});
 
 nextSong.addEventListener('click', function() {
 	currentSong++;
@@ -132,9 +157,7 @@ nextSong.addEventListener('click', function() {
 	}
 
 	showSong(currentSong);
-
-	singleSong = songs[currentSong].songTitle;
-	songArtist = songs[currentSong].artist;
+	setSong();
 
 	console.log(currentSong);
 });
@@ -147,6 +170,7 @@ prevSong.addEventListener('click', function() {
 	}
 
 	showSong(currentSong);
+	setSong();
 
 	console.log(currentSong);
 });
@@ -161,26 +185,18 @@ randomSong.addEventListener('click', function() {
 });
 
 likeBtn.addEventListener('click', function() {
-	let likedSongs = [];
+	if (localStorage.getItem('likedsongs') === null) {
+		setToLocalStorage();
 
-	localStorage.setItem('artistsong', JSON.stringify(songArtist));
-	localStorage.setItem('singlesong', JSON.stringify(singleSong));
+		console.log('is equal to null');
+	} else {
+		setToLocalStorage();
 
-	let storedArtist = JSON.parse(localStorage.getItem('artistsong'));
-	let storedSong = JSON.parse(localStorage.getItem('singlesong'));
+		console.log('is not equal to null');
+	}
 
-	document.querySelector('.add-more').textContent = storedSong;
-	document.querySelector('.more').textContent = storedArtist;
-
-	/// likedSongs.push(storedSong);
-
-	// console.log(likedSongs);
-
-	// console.log('I like this song');
 	// likeBtn.style.color = 'green';
 });
-
-// localStorage.clear();
 
 newWindow.addEventListener('click', function() {
 	showMore.classList.remove('closed');
@@ -191,3 +207,5 @@ closeBtn.addEventListener('click', function() {
 	showMore.classList.remove('opened', 'overlay');
 	showMore.classList.add('closed');
 });
+
+// localStorage.clear();

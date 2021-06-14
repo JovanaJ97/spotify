@@ -74,8 +74,8 @@ h1 {
 }
 
 .mobile {
-  width: 375px;
-  height: 660px;
+  max-width: 375px;
+  min-height: 660px;
   background-color: #383838;
   border-radius: 32px;
   position: relative;
